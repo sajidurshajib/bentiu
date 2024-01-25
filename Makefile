@@ -1,5 +1,3 @@
-.PHONY: dect
-
 create_env: 
 	@python3 -m venv env
 
@@ -12,5 +10,5 @@ install: activate_env
 start: activate_env
 	@python3 university/manage.py runserver
 
-start_dev:
-	@python3 university/manage.py runserver
+start-dev:
+	@python3 university/manage.py livereload
