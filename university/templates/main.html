@@ -1,15 +1,10 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-    <head>
-        {% load livereload_tags %}
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link href="{% static 'css/style.min.css' %}" rel="stylesheet" />
-        <title>{{ title|default:"University" }}</title>
-        {% livereload_script %}
-    </head>
-    <body>
-        {% include 'navbar.html' %} {% block content %} {% endblock %}
-    </body>
-</html>
+{% extends 'layout.html' %} {% block content%}
+
+<div>{% include 'sections/hero.html' %}</div>
+<div>{% include 'sections/menu_cards.html' %}</div>
+<div>{% include 'sections/about_section.html' %}</div>
+<div>{% include 'sections/academic_cards.html' %}</div>
+<div>{% include 'sections/mission_vision.html' %}</div>
+<div>{% include 'sections/news_cards.html' %}</div>
+
+{%endblock %}

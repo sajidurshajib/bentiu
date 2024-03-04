@@ -1,0 +1,63 @@
+{% load static %}
+<div class="md:container mx-auto pt-[120px]">
+    <div class="grid grid-cols-12 gap-8">
+        <div class="col-span-6">
+            <h2 class="font-medium text-gray-600 mb-1">About Us</h2>
+
+            <span class="w-[100px] h-[2px] bg-gray-400 inline-block"></span>
+            <span class="w-[70px] h-[2px] bg-gray-200 inline-block"></span>
+            <p class="leading-loose text-lg font-sans font-thin text-gray-800 text-justify">
+                Bentiu University Collage of Petroleum (BUCP) is an academic institution of higher education, founded in
+                2010. The University Collage of Petroleum was originally known as Bentiu University, it was one of the
+                four Public Universities (project universities ) decreed by the former president of Sudan Omar Hassan Al
+                Bashir with the purpose of making unity attractive as South Sudanese were scheduled to conduct
+                Referendum for the southern part of the country in 2011 (Resolution of the 1st Session of the NCHE,
+                No3.,2012,p.3).
+            </p>
+            <div class="grid grid-cols-12 gap-10 mt-4">
+                <div class="col-span-4 bg-gray-100 py-8 px-6 rounded-sm flex justify-center">
+                    <div class="">
+                        <div class="flex justify-center py-2">
+                            <i
+                                class="fa-solid fa-user-tie text-gray-400 text-2xl py-[10px] px-[14px] bg-gray-200 rounded-full mx-auto"></i>
+                        </div>
+
+                        <h4 class="text-center font-sans py-2 text-primary">20+</h4>
+                        <p class="text-center text-sm pt-1 font-sans text-gray-500">Academic & Administrative Staff</p>
+                    </div>
+                </div>
+                <div class="col-span-4 bg-gray-100 py-8 px-6 rounded-sm flex justify-center">
+                    <div class="">
+                        <div class="flex justify-center py-2">
+                            <i
+                                class="fa-solid fa-school text-gray-400 text-2xl py-[10px] px-[14px] bg-gray-200 rounded-full mx-auto"></i>
+                        </div>
+
+                        <h4 class="text-center font-sans py-2 text-primary">5+</h4>
+                        <p class="text-center text-sm pt-1 font-sans text-gray-500">Schools, Institute & Center</p>
+                    </div>
+                </div>
+                <div class="col-span-4 bg-gray-100 py-8 px-6 rounded-sm flex justify-center">
+                    <div class="">
+                        <div class="flex justify-center py-2">
+                            <i
+                                class="fa-solid fa-list-check text-gray-400 text-2xl py-[10px] px-[14px] bg-gray-200 rounded-full mx-auto"></i>
+                        </div>
+
+                        <h4 class="text-center font-sans py-2 text-primary">5+</h4>
+                        <p class="text-center text-sm pt-1 font-sans text-gray-500">Future Projects</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-span-6">
+            <div
+                class="w-full h-full rounded-sm shadow-md"
+                style="
+                    background-image: url('{% static 'img/chinese_embassy.jpg' %}');
+                    background-size: cover;
+                    background-position: center;
+                "></div>
+        </div>
+    </div>
+</div>

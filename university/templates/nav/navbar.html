@@ -1,0 +1,29 @@
+{% load static %}
+
+<div class="shadow-md">
+    <div class="md:container mx-auto py-4 grid grid-cols-12">
+        <div class="col-span-2">
+            <a href="/" class="uppercase font-robotoSlab w-[250px] flex">
+                <div class="pr-4">
+                    <!-- <i class="fa-solid fa-building-columns text-4xl scale-125 text-primary"></i> -->
+                    <img src="{% static 'img/bentiu-logo.png' %}" alt="BENTIU University logo" style="height: 55px" />
+                </div>
+                <div>
+                    <h3 class="text-primary text-center font-medium">BENTIU</h3>
+                    <h4 class="text-center text-base">University</h4>
+                </div>
+            </a>
+        </div>
+        <div class="col-span-10 flex items-center relative">
+            <ul class="flex justify-center absolute right-0">
+                <li class="ml-6 uppercase text-sm font-sans font-semibold text-gray-500"><a href="/about">About</a></li>
+                <li class="ml-6 uppercase text-sm font-sans font-semibold text-gray-500">
+                    <a href="/cources">Cources</a>
+                </li>
+                <li class="ml-6 uppercase text-sm font-sans font-semibold text-gray-500"><a href="">Notice</a></li>
+                <li class="ml-6 uppercase text-sm font-sans font-semibold text-gray-500"><a href="">News</a></li>
+                <li class="ml-6 uppercase text-sm font-sans font-semibold text-gray-500"><a href="">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -2,9 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-    font-family: 'Exo', sans-serif;
-}
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600&display=swap');
+
+
+/* 
+font-family: 'Exo', sans-serif;
+font-family: 'Roboto Slab', serif; 
+*/
 
 h1 {
   @apply text-4xl font-bold; 
