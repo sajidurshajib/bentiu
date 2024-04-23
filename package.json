@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:css":"npx tailwindcss -i ./university/static/style.css -o ./university/static/css/style.min.css --minify --watch"
+    "build:css": "npx tailwindcss -i ./university/static/style.css -o ./university/static/css/style.min.css --minify --watch"
   },
   "keywords": [],
   "author": "",

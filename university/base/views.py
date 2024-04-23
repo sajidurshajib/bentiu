@@ -12,5 +12,10 @@ def about(request):
 
 
 def cources(request):
-    context = {'title': 'About'}
+    context = {'title': 'Cources'}
     return render(request, 'cources.html', context)
+
+
+def contacts(request):
+    context = {'title': 'Contact Us'}
+    return render(request, 'contact.html', context)

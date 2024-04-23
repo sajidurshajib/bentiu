@@ -1,0 +1,30 @@
+{% load static %}
+
+<div class="w-full min-h-[600px] flex justify-center items-center">
+    <div class="bg-slate-100 shadow-md p-10 rounded-md min-w-[360px]">
+        <h2 class="text-gray-600 text-center mb-8">Login</h2>
+        <form method="post">
+            {% csrf_token %}
+            <div>
+                <label for="id_username" class="text-gray-600 block py-2">Email:</label>
+                <input
+                    type="email"
+                    name="username"
+                    id="id_username"
+                    required
+                    autofocus
+                    class="text-sm border-2 border-slate-200 p-2 w-full focus:outline-none rounded-sm mb-2" />
+            </div>
+            <div>
+                <label for="id_password" class="text-gray-600 block py-2">Password:</label>
+                <input
+                    type="password"
+                    name="password"
+                    id="id_password"
+                    required
+                    class="text-sm border-2 border-slate-200 p-2 w-full focus:outline-none rounded-sm mb-4" />
+            </div>
+            <button type="submit" class="bg-orange-400 text-white rounded-sm py-2 block w-full">Login</button>
+        </form>
+    </div>
+</div>

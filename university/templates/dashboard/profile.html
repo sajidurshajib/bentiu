@@ -1,0 +1,16 @@
+{% extends 'dashboard/layout.html' %} {% block content%}
+
+<div>
+    <h2 class="text-gray-600">Profile</h2>
+    <div class="bg-white inline-block px-4 py-8 mt-6 shadow-md rounded-md">
+        <div class="flex justify-center items-center">
+            <i class="fa-regular fa-user text-4xl text-gray-500 p-2 mb-2"></i>
+        </div>
+        <p class="text-orange-400 text-center">
+            {{user.first_name}} {{user.last_name}} <span class="text-gray-400">({{user.role}})</span>
+        </p>
+        <p class="text-center"><i class="fa-solid fa-envelope text-gray-500"></i> {{user.email}}</p>
+    </div>
+</div>
+
+{%endblock %}

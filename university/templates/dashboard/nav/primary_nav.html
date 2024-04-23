@@ -1,0 +1,32 @@
+<div class="bg-primary px-4">
+    <div class="p-2 grid grid-cols-12">
+        <div class="col-span-8">
+            <ul class="list-none flex flex-row justify-start text-white text-xs mt-1">
+                <li class="ml-2">
+                    <a href="/"><i class="fa-solid fa-home"></i> BENTIU University</a>
+                </li>
+                <li class="ml-8">
+                    <a href="/dashboard"><i class="fa-solid fa-table-columns"></i> Dashboard</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-span-4">
+            <ul class="list-none flex flex-row justify-end text-white text-xs mt-1">
+                {% if user.is_authenticated == True %}
+
+                <li class="ml-8">
+                    <a href="/dashboard/profile"><i class="fa-solid fa-user"></i> Profile ({{user.role}})</a>
+                </li>
+                <li class="ml-8">
+                    <a href="/account/logout"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+                </li>
+                {% else %}
+                <li>
+                    <a href="/account"><i class="fa-solid fa-arrow-right-to-bracket mr-2 font-sans"></i>Login</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</div>
