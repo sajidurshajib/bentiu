@@ -1,0 +1,74 @@
+{% extends 'dashboard/layout.html' %} {% block content%}
+
+<div>
+    <h2 class="text-gray-600">Notice</h2>
+    <div class="flex">
+        <a href="/dashboard/notice-add" class="bg-orange-400 text-white px-6 py-2 mt-4 rounded-md block"
+            >Add Notice ></a
+        >
+    </div>
+
+    <div class="mt-6 w-[900px]">
+        {% for notice in notices %}
+        <div class="bg-slate-200 p-4 grid grid-cols-12 rounded-sm mb-4">
+            <div class="col-span-8">
+                <h4 class="text-gray-600">{{ notice.title }}</h4>
+                <p class="text-gray-600">{{ notice.body|safe|truncatewords:7 }}</p>
+                <p class="text-gray-400">{{ notice.date }}</p>
+            </div>
+            <div class="col-span-4">
+                <div class="mb-4">
+                    <a
+                        class="text-white bg-blue-500 px-3 py-1 rounded-sm mr-1"
+                        href="/dashboard/notice-edit/{{ notice.id }}"
+                        >Edit</a
+                    >
+                    <a
+                        class="text-white bg-red-500 px-3 py-1 rounded-sm mr-1"
+                        href="/dashboard/notice-remove/{{ notice.id }}"
+                        >Delete</a
+                    >
+                </div>
+                <p class="text-xs text-gray-500">Created at: {{ notice.created_at }}</p>
+                <p class="text-xs text-gray-500">Last updated: {{ notice.updated_at }}</p>
+            </div>
+        </div>
+        {% endfor %}
+
+        <div class="flex justify-center pt-6">
+            <span>
+                {% if notices.has_previous %}
+                <a
+                    href="?page=1&limit=6"
+                    class="bg-slate-200 text-gray-500 rounded-sm px-3 py-1 hover:bg-orange-400 hover:text-white"
+                    ><< First</a
+                >
+                <a
+                    href="?page={{ notices.previous_page_number }}&limit=6"
+                    class="bg-slate-200 text-gray-500 rounded-sm px-3 py-1 hover:bg-orange-400 hover:text-white"
+                    >< Previous</a
+                >
+                {% endif %}
+
+                <span class="bg-slate-200 text-gray-700 rounded-sm px-3 py-1 mx-1">
+                    Page {{ notices.number }} of {{ notices.paginator.num_pages }}
+                </span>
+
+                {% if notices.has_next %}
+                <a
+                    href="?page={{ notices.next_page_number }}&limit=6"
+                    class="bg-slate-200 text-gray-500 rounded-sm px-3 py-1 hover:bg-orange-400 hover:text-white"
+                    >Next ></a
+                >
+                <a
+                    href="?page={{ notices.paginator.num_pages }}&limit=6"
+                    class="bg-slate-200 text-gray-500 rounded-sm px-3 py-1 hover:bg-orange-400 hover:text-white"
+                    >Last >></a
+                >
+                {% endif %}
+            </span>
+        </div>
+    </div>
+</div>
+
+{%endblock %}

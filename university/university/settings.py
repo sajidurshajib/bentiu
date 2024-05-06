@@ -28,7 +28,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', 'True')
+for_debug = False 
+if (os.environ.get('DEBUG') == 'True'):
+    for_debug = True
+
+DEBUG = for_debug
 
 ALLOWED_HOSTS = ['*']
 
@@ -44,9 +48,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'tinymce',
     'base.apps.BaseConfig',
     'dashboard.apps.DashboardConfig',
     'accounts.apps.AccountsConfig',
+    'notices.apps.NoticesConfig'
 ]
 
 MIDDLEWARE = [
@@ -142,3 +148,4 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+

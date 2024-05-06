@@ -1,0 +1,55 @@
+<div class="md:container mx-auto pt-[120px]">
+    <h2 class="font-medium text-gray-600 mb-1">Notices</h2>
+
+    <span class="w-[120px] h-[2px] bg-gray-400 inline-block"></span>
+    <span class="w-[80px] h-[2px] bg-gray-200 inline-block"></span>
+    <div class="mt-6 w-full">
+        <div class="grid grid-cols-12 gap-4">
+            {% for notice in notices %}
+            <div class="bg-slate-200 p-4 rounded-sm mb-4 col-span-6">
+                <a href="/notices/{{ notice.slug }}">
+                    <h4 class="text-gray-600">{{ notice.title }}</h4>
+                </a>
+                <p class="text-gray-600">
+                    {{ notice.body|safe|truncatewords:12 }} <a href="/notices/{{ notice.slug }}">See more.</a>
+                </p>
+                <p class="text-gray-400">{{ notice.date }}</p>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="flex justify-center pt-6">
+            <span>
+                {% if notices.has_previous %}
+                <a
+                    href="?page=1&limit=6"
+                    class="bg-slate-200 text-gray-500 rounded-sm px-3 py-1 hover:bg-orange-400 hover:text-white"
+                    ><< First</a
+                >
+                <a
+                    href="?page={{ notices.previous_page_number }}&limit=6"
+                    class="bg-slate-200 text-gray-500 rounded-sm px-3 py-1 hover:bg-orange-400 hover:text-white"
+                    >< Previous</a
+                >
+                {% endif %}
+
+                <span class="bg-slate-200 text-gray-700 rounded-sm px-3 py-1 mx-1">
+                    Page {{ notices.number }} of {{ notices.paginator.num_pages }}
+                </span>
+
+                {% if notices.has_next %}
+                <a
+                    href="?page={{ notices.next_page_number }}&limit=6"
+                    class="bg-slate-200 text-gray-500 rounded-sm px-3 py-1 hover:bg-orange-400 hover:text-white"
+                    >Next ></a
+                >
+                <a
+                    href="?page={{ notices.paginator.num_pages }}&limit=6"
+                    class="bg-slate-200 text-gray-500 rounded-sm px-3 py-1 hover:bg-orange-400 hover:text-white"
+                    >Last >></a
+                >
+                {% endif %}
+            </span>
+        </div>
+    </div>
+</div>

@@ -27,6 +27,18 @@
                             class="inline-block mx-auto mt-6" />
                         <h4 class="text-gray-600 text-center pt-4 inline-block">BENTIU University</h4>
                     </a>
+                    <div class="mt-10">
+                        <a
+                            href="/dashboard/notice"
+                            class="mx-16 {% if request.resolver_match.url_name == 'dashboard-notice' or request.resolver_match.url_name == 'dashboard-notice-add' %}bg-orange-400 text-white{% else %} bg-slate-200 text-gray-500 {% endif %} hover:bg-orange-400 hover:text-white px-2 py-1 mb-2 rounded-md block"
+                            >Notice</a
+                        >
+                        <a
+                            href="/dashboard/news"
+                            class="mx-16 {% if request.resolver_match.url_name == 'dashboard-news' %}bg-orange-400 text-white{% else %} bg-slate-200 text-gray-500 {% endif %} hover:bg-orange-400 hover:text-white px-2 py-1 mb-2 rounded-md block"
+                            >News</a
+                        >
+                    </div>
                 </div>
             </div>
             <div id="contentBody" class="px-6 pt-6" style="margin-left: 320px">{% block content %}{% endblock %}</div>
