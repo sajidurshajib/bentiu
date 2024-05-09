@@ -144,6 +144,10 @@ STATICFILES_DIRS = [
 ]
 
 
+TINYMCE_JS_URL = 'https://cdnjs.cloudflare.com/ajax/libs/tinymce/7.1.0/tinymce.min.js'
+TINYMCE_COMPRESSOR = False
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
