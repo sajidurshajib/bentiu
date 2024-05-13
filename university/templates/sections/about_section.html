@@ -50,14 +50,16 @@
                 </div>
             </div>
         </div>
-        <div class="col-span-6">
+        <div class="col-span-6 loading-container">
+            <div class="w-full h-full rounded-sm animate-pulse loading-src">
+                <div class="w-full h-full bg-slate-200 flex justify-center items-center">
+                    <div class="bg-slate-300 h-6 w-6 animate-spin"></div>
+                </div>
+            </div>
             <div
-                class="w-full h-full rounded-sm shadow-md"
-                style="
-                    background-image: url('{% static 'img/chinese_embassy.jpg' %}');
-                    background-size: cover;
-                    background-position: center;
-                "></div>
+                class="w-full h-full rounded-sm shadow-md loaded-src"
+                data-src="{% static 'img/chinese_embassy.jpg' %}"
+                style="background-size: cover; background-position: center"></div>
         </div>
     </div>
 </div>

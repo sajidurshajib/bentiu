@@ -52,7 +52,8 @@ INSTALLED_APPS = [
     'base.apps.BaseConfig',
     'dashboard.apps.DashboardConfig',
     'accounts.apps.AccountsConfig',
-    'notices.apps.NoticesConfig'
+    'notices.apps.NoticesConfig',
+    'news.apps.NewsConfig'
 ]
 
 MIDDLEWARE = [
@@ -142,6 +143,14 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")
 ]
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+MEDIA_URL = '/media/'
+
+
 
 
 TINYMCE_JS_URL = 'https://cdnjs.cloudflare.com/ajax/libs/tinymce/7.1.0/tinymce.min.js'

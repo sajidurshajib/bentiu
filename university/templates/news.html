@@ -1,0 +1,41 @@
+{% extends 'layout.html' %} {% block content%}
+
+<div>
+    <div>{% include 'sections/news_cards.html' %}</div>
+
+    <div class="flex justify-center pt-6">
+        <span>
+            {% if news.has_previous %}
+            <a
+                href="?page=1&limit=6"
+                class="bg-slate-200 text-gray-500 rounded-sm px-3 py-1 hover:bg-orange-400 hover:text-white"
+                ><< First</a
+            >
+            <a
+                href="?page={{ notices.previous_page_number }}&limit=6"
+                class="bg-slate-200 text-gray-500 rounded-sm px-3 py-1 hover:bg-orange-400 hover:text-white"
+                >< Previous</a
+            >
+            {% endif %}
+
+            <span class="bg-slate-200 text-gray-700 rounded-sm px-3 py-1 mx-1">
+                Page {{ news.number }} of {{ news.paginator.num_pages }}
+            </span>
+
+            {% if news.has_next %}
+            <a
+                href="?page={{ notices.next_page_number }}&limit=6"
+                class="bg-slate-200 text-gray-500 rounded-sm px-3 py-1 hover:bg-orange-400 hover:text-white"
+                >Next ></a
+            >
+            <a
+                href="?page={{ notices.paginator.num_pages }}&limit=6"
+                class="bg-slate-200 text-gray-500 rounded-sm px-3 py-1 hover:bg-orange-400 hover:text-white"
+                >Last >></a
+            >
+            {% endif %}
+        </span>
+    </div>
+</div>
+
+{%endblock %}

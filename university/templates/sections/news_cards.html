@@ -6,62 +6,28 @@
     <span class="w-[80px] h-[2px] bg-gray-200 inline-block"></span>
 
     <div class="grid grid-cols-12 gap-8 mt-4">
+        {% for n in news %}
         <div class="col-span-4 border-2 border-gray-200 p-1">
-            <a href="/">
+            <div class="loading-container">
+                <div class="w-full h-[180px] animate-pulse loading-src">
+                    <div class="w-full h-full bg-slate-200 flex justify-center items-center">
+                        <div class="bg-slate-300 h-6 w-6 animate-spin"></div>
+                    </div>
+                </div>
                 <div
-                    class="w-full h-[250px]"
-                    style="
-                        background-image: url('{% static 'img/blog1.jpg' %}');
-                        background-size: cover;
-                        background-position: center;
-                    "></div>
-                <h3 class="my-4 text-primary uppercase text-xl font-medium px-2">Lorem ipsum dolor sit amet.</h3>
-                <p class="px-2 font-sans text-gray-600">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos sapiente voluptatum dicta,
-                    perspiciatis placeat adipisci.
-                </p>
-                <a href="/" class="text-primary text-sm px-2 py-4 block"
+                    class="w-full h-[250px] loaded-src"
+                    data-src="/media/{{n.cover}}"
+                    style="background-size: cover; background-position: center"></div>
+                <a href="/news/{{ n.slug }}" class="inline-block">
+                    <h3 class="my-4 text-primary uppercase text-xl font-medium px-2">{{ n.title }}</h3></a
+                >
+                <div class="px-2 font-sans text-gray-600">{{ n.body|safe|truncatewords:12 }}</div>
+
+                <a href="/news/{{ n.slug }}" class="text-primary text-sm px-2 py-4 inline-block"
                     >Learn more <i class="fa-solid fa-arrow-right"></i
                 ></a>
-            </a>
+            </div>
         </div>
-        <div class="col-span-4 border-2 border-gray-200 p-1">
-            <a href="/">
-                <div
-                    class="w-full h-[250px]"
-                    style="
-                        background-image: url('{% static 'img/blog2.jpg' %}');
-                        background-size: cover;
-                        background-position: center;
-                    "></div>
-                <h3 class="my-4 text-primary uppercase text-xl font-medium px-2">Lorem ipsum dolor sit amet.</h3>
-                <p class="px-2 font-sans text-gray-600">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos sapiente voluptatum dicta,
-                    perspiciatis placeat adipisci.
-                </p>
-                <a href="/" class="text-primary text-sm px-2 py-4 block"
-                    >Learn more <i class="fa-solid fa-arrow-right"></i
-                ></a>
-            </a>
-        </div>
-        <div class="col-span-4 border-2 border-gray-200 p-1">
-            <a href="/">
-                <div
-                    class="w-full h-[250px]"
-                    style="
-                        background-image: url('{% static 'img/blog3.jpg' %}');
-                        background-size: cover;
-                        background-position: center;
-                    "></div>
-                <h3 class="my-4 text-primary uppercase text-xl font-medium px-2">Lorem ipsum dolor sit amet.</h3>
-                <p class="px-2 font-sans text-gray-600">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos sapiente voluptatum dicta,
-                    perspiciatis placeat adipisci.
-                </p>
-                <a href="/" class="text-primary text-sm px-2 py-4 block"
-                    >Learn more <i class="fa-solid fa-arrow-right"></i
-                ></a>
-            </a>
-        </div>
+        {% endfor %}
     </div>
 </div>

@@ -1,0 +1,22 @@
+<div class="md:container mx-auto pt-[120px] min-h-[600px]">
+    <h2 class="font-medium text-gray-600 mb-1">News</h2>
+
+    <span class="w-[120px] h-[2px] bg-gray-400 inline-block"></span>
+    <span class="w-[80px] h-[2px] bg-gray-200 inline-block"></span>
+
+    <h2 class="text-gray-600 py-4">{{ news.title }}</h2>
+    <div class="loading-container">
+        <div class="w-full h-[600px] animate-pulse loading-src">
+            <div class="w-full h-full bg-slate-200 flex justify-center items-center">
+                <div class="bg-slate-300 h-6 w-6 animate-spin"></div>
+            </div>
+        </div>
+        <div
+            class="w-full h-[600px] loaded-src"
+            data-src="/media/{{news.cover}}"
+            style="background-size: cover; background-position: center"></div>
+    </div>
+    <br />
+    <span class="bg-slate-200 px-3 py-1 text-gray-500">{{news.date}}</span>
+    <p class="text-gray-500 mt-6">{{ news.body|safe }}</p>
+</div>

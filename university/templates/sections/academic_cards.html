@@ -6,14 +6,16 @@
     <span class="w-[70px] h-[2px] bg-gray-200 inline-block"></span>
 
     <div class="grid grid-cols-12 gap-4 mt-4">
-        <div class="col-span-3 border-2 border-gray-200 p-1 pb-4">
+        <div class="col-span-3 border-2 border-gray-200 p-1 pb-4 loading-container">
+            <div class="w-full h-[180px] animate-pulse loading-src">
+                <div class="w-full h-full bg-slate-200 flex justify-center items-center">
+                    <div class="bg-slate-300 h-6 w-6 animate-spin"></div>
+                </div>
+            </div>
             <div
-                class="w-full h-[180px]"
-                style="
-                    background-image: url('{% static 'img/edu1.jpg' %}');
-                    background-size: cover;
-                    background-position: center;
-                "></div>
+                class="w-full h-[180px] loaded-src"
+                data-src="{% static 'img/edu1.jpg' %}"
+                style="background-size: cover; background-position: center"></div>
             <p class="inline-block py-1 px-4 bg-primary text-white relative -top-4 left-2">Business</p>
             <h4 class="mb-4 text-primary uppercase text-base px-2">School of Innovation and Entrepreneurship</h4>
             <p class="px-2 font-sans text-gray-600">
@@ -23,14 +25,16 @@
                 >Read more <i class="fa-solid fa-arrow-right"></i
             ></a>
         </div>
-        <div class="col-span-3 border-2 border-gray-200 p-1">
+        <div class="col-span-3 border-2 border-gray-200 p-1 loading-container">
+            <div class="w-full h-[180px] animate-pulse loading-src">
+                <div class="w-full h-full bg-slate-200 flex justify-center items-center">
+                    <div class="bg-slate-300 h-6 w-6 animate-spin"></div>
+                </div>
+            </div>
             <div
-                class="w-full h-[180px]"
-                style="
-                    background-image: url('{% static 'img/edu2.jpg' %}');
-                    background-size: cover;
-                    background-position: center;
-                "></div>
+                class="w-full h-[180px] loaded-src"
+                data-src="{% static 'img/edu2.jpg' %}"
+                style="background-size: cover; background-position: center"></div>
             <p class="inline-block py-1 px-4 bg-primary text-white relative -top-4 left-2">Science</p>
             <h4 class="mb-4 text-primary uppercase text-base px-2">
                 School of Computer Science and Information Technology
@@ -43,14 +47,16 @@
                 >Read more <i class="fa-solid fa-arrow-right"></i
             ></a>
         </div>
-        <div class="col-span-3 border-2 border-gray-200 p-1">
+        <div class="col-span-3 border-2 border-gray-200 p-1 loading-container">
+            <div class="w-full h-[180px] animate-pulse loading-src">
+                <div class="w-full h-full bg-slate-200 flex justify-center items-center">
+                    <div class="bg-slate-300 h-6 w-6 animate-spin"></div>
+                </div>
+            </div>
             <div
-                class="w-full h-[180px]"
-                style="
-                    background-image: url('{% static 'img/edu3.jpg' %}');
-                    background-size: cover;
-                    background-position: center;
-                "></div>
+                class="w-full h-[180px] loaded-src"
+                data-src="{% static 'img/edu3.jpg' %}"
+                style="background-size: cover; background-position: center"></div>
             <p class="inline-block py-1 px-4 bg-primary text-white relative -top-4 left-2">Enviromental Science</p>
             <h4 class="mb-4 text-primary uppercase text-base px-2">School of Environment and Water Management</h4>
             <p class="px-2 font-sans text-gray-600">
@@ -60,14 +66,16 @@
                 >Read more <i class="fa-solid fa-arrow-right"></i
             ></a>
         </div>
-        <div class="col-span-3 border-2 border-gray-200 p-1">
+        <div class="col-span-3 border-2 border-gray-200 p-1 loading-container">
+            <div class="w-full h-[180px] animate-pulse loading-src">
+                <div class="w-full h-full bg-slate-200 flex justify-center items-center">
+                    <div class="bg-slate-300 h-6 w-6 animate-spin"></div>
+                </div>
+            </div>
             <div
-                class="w-full h-[180px]"
-                style="
-                    background-image: url('{% static 'img/edu4.webp' %}');
-                    background-size: cover;
-                    background-position: center;
-                "></div>
+                class="w-full h-[180px] loaded-src"
+                data-src="{% static 'img/edu4.webp' %}"
+                style="background-size: cover; background-position: center"></div>
             <p class="inline-block py-1 px-4 bg-primary text-white relative -top-4 left-2">Science</p>
             <h4 class="mb-4 text-primary uppercase text-base px-2">
                 School of Petroleum Engineering and Energy Studies
