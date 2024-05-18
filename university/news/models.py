@@ -18,7 +18,7 @@ def optimize_and_convert_to_jpg(image):
     buffer = BytesIO()
     while True:
         buffer = BytesIO()
-        img.save(buffer, format='jpg', quality=quality)
+        img.save(buffer, format='JPEG', quality=quality)
         if buffer.tell() <= max_size or quality <= 10:
             break
         quality -= 5
