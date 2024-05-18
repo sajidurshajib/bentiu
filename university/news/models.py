@@ -24,7 +24,7 @@ def optimize_and_convert_to_jpg(image):
         quality -= 5
         buffer.seek(0)
         img = Image.open(buffer)
-    return InMemoryUploadedFile(buffer, None, f"{image.name.split('.')[0]}.jpg", 'image/jpg', buffer.getbuffer().nbytes, None)
+    return InMemoryUploadedFile(buffer, None, f"{image.name.split('.')[0]}.jpg", 'image/jpeg', buffer.getbuffer().nbytes, None)
 
 def generate_filename(instance, filename):
     current_time = datetime.now().strftime("%Y%m%d%H%M%S")
