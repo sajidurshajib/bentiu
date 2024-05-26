@@ -36,23 +36,23 @@ def generate_filename(instance, filename):
     current_time = datetime.now().strftime("%Y%m%d%H%M%S")
     slug = instance.slug
     filename = f"{slug}_{current_time}.jpg"
-    return os.path.join('news', filename)
+    return os.path.join('schools', filename)
 
-class News(models.Model):
-    title = models.CharField(max_length=255)
+class Schools(models.Model):
+    name = models.CharField(max_length=255)
     slug = models.SlugField(unique=True, max_length=255, editable=False)
     body = HTMLField()
     cover = models.ImageField(upload_to=generate_filename)
-    date = models.DateField(default=datetime.now)
+    position = models.IntegerField(default=0)
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True)
 
     def save(self, *args, **kwargs):
         if not self.id:
-            self.slug = slugify(self.title)
+            self.slug = slugify(self.name)
         if self.cover:
             self.cover = optimize_and_convert_to_jpg(self.cover)
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return self.title
+        return self.name

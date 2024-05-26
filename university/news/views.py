@@ -42,7 +42,7 @@ def news_edit(request, id):
     news = get_object_or_404(News, pk=id)
 
     if request.method == 'POST':
-        form = NewsForm(request.POST, instance=news)
+        form = NewsForm(request.POST, request.FILES, instance=news)
         if form.is_valid():
             form.save()
             return redirect('dashboard-news')

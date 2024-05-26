@@ -1,0 +1,85 @@
+{% extends 'dashboard/layout.html' %} {% block content%}
+
+<div>
+    <h2 class="text-gray-600">Schools</h2>
+    <div class="flex">
+        <a href="/dashboard/schools-add" class="bg-orange-400 text-white px-6 py-2 mt-4 rounded-md block"
+            >Add Schools ></a
+        >
+    </div>
+
+    <div class="mt-6 max-w-[900px]">
+        {% for n in schools %}
+        <div class="bg-slate-200 p-4 grid grid-cols-12 gap-4 rounded-sm mb-4">
+            <div class="loading-container col-span-4">
+                <div class="h-[150px] w-full animate-pulse loading-src">
+                    <div class="w-full h-full bg-slate-200 flex justify-center items-center">
+                        <div class="bg-slate-300 h-6 w-6 animate-spin"></div>
+                    </div>
+                </div>
+                <div
+                    class="w-full h-[150px] loaded-src"
+                    data-src="/media/{{n.cover}}"
+                    style="background-size: cover; background-position: center"></div>
+            </div>
+            <div class="col-span-5">
+                <h4 class="text-gray-600">{{ n.title }}</h4>
+                <p class="text-gray-600">{{ n.body|safe|truncatewords:10 }}</p>
+                <p class="text-gray-400">{{ n.date }}</p>
+            </div>
+            <div class="col-span-3">
+                <div class="mb-4">
+                    <a
+                        class="text-white bg-blue-500 px-3 py-1 rounded-sm mr-1"
+                        href="/dashboard/schools-edit/{{ n.id }}"
+                        >Edit</a
+                    >
+                    <a
+                        class="text-white bg-red-500 px-3 py-1 rounded-sm mr-1"
+                        href="/dashboard/schools-remove/{{ n.id }}"
+                        >Delete</a
+                    >
+                </div>
+                <p class="text-xs text-gray-500">Created at: {{ n.created_at }}</p>
+                <p class="text-xs text-gray-500">Last updated: {{ n.updated_at }}</p>
+            </div>
+        </div>
+        {% endfor %}
+
+        <div class="flex justify-center pt-6">
+            <span>
+                {% if schools.has_previous %}
+                <a
+                    href="?page=1&limit=6"
+                    class="bg-slate-200 text-gray-500 rounded-sm px-3 py-1 hover:bg-orange-400 hover:text-white"
+                    ><< First</a
+                >
+                <a
+                    href="?page={{ notices.previous_page_number }}&limit=6"
+                    class="bg-slate-200 text-gray-500 rounded-sm px-3 py-1 hover:bg-orange-400 hover:text-white"
+                    >< Previous</a
+                >
+                {% endif %}
+
+                <span class="bg-slate-200 text-gray-700 rounded-sm px-3 py-1 mx-1">
+                    Page {{ schools.number }} of {{ schools.paginator.num_pages }}
+                </span>
+
+                {% if schools.has_next %}
+                <a
+                    href="?page={{ notices.next_page_number }}&limit=6"
+                    class="bg-slate-200 text-gray-500 rounded-sm px-3 py-1 hover:bg-orange-400 hover:text-white"
+                    >Next ></a
+                >
+                <a
+                    href="?page={{ notices.paginator.num_pages }}&limit=6"
+                    class="bg-slate-200 text-gray-500 rounded-sm px-3 py-1 hover:bg-orange-400 hover:text-white"
+                    >Last >></a
+                >
+                {% endif %}
+            </span>
+        </div>
+    </div>
+</div>
+
+{%endblock %}

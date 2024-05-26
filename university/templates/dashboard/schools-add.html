@@ -1,0 +1,20 @@
+{% extends 'dashboard/layout.html' %} {% block content%}
+
+<div>
+    <h2 class="text-gray-600">Add Schools</h2>
+    <div class="flex">
+        <a href="/dashboard/schools" class="bg-orange-400 text-white px-6 py-2 mt-4 rounded-md block">< All Schools</a>
+    </div>
+    <div class="max-w-[50vw]">
+        <form method="post" enctype="multipart/form-data" class="space-y-4">
+            {% csrf_token %} {{form.media}} {{ form.as_p }}
+            <button
+                type="submit"
+                class="bg-orange-400 text-white px-6 py-2 mt-4 rounded-md block focus:text-gray-500 focus:bg-slate-200">
+                Add Schools
+            </button>
+        </form>
+    </div>
+</div>
+
+{%endblock %}
