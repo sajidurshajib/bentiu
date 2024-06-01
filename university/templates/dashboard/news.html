@@ -22,7 +22,7 @@
             </div>
             <div class="col-span-5">
                 <h4 class="text-gray-600">{{ n.title }}</h4>
-                <p class="text-gray-600">{{ n.body|safe|truncatewords:10 }}</p>
+                <p class="text-gray-600">{{ n.body|striptags|slice:':100' }}</p>
                 <p class="text-gray-400">{{ n.date }}</p>
             </div>
             <div class="col-span-3">

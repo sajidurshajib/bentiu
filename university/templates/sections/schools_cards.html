@@ -1,0 +1,29 @@
+{% load static %}
+<div class="md:container mx-auto pt-[120px]">
+    <h2 class="font-medium text-gray-600 mb-1">Schools</h2>
+
+    <span class="w-[100px] h-[2px] bg-gray-400 inline-block"></span>
+    <span class="w-[70px] h-[2px] bg-gray-200 inline-block"></span>
+
+    <div class="grid grid-cols-12 gap-4 mt-4">
+        {% for s in schools %}
+        <div class="col-span-3 border-2 border-gray-200 p-1 pb-4 loading-container">
+            <div class="w-full h-[180px] animate-pulse loading-src">
+                <div class="w-full h-full bg-slate-200 flex justify-center items-center">
+                    <div class="bg-slate-300 h-6 w-6 animate-spin"></div>
+                </div>
+            </div>
+            <div
+                class="w-full h-[180px] loaded-src"
+                data-src="/media/{{s.cover}}"
+                style="background-size: cover; background-position: center"></div>
+            <!-- <p class="inline-block py-1 px-4 bg-primary text-white relative -top-4 left-2">Business</p> -->
+            <h4 class="mb-4 text-primary uppercase text-base px-2 mt-2">{{ s.name }}</h4>
+            <p class="px-2 font-sans text-gray-600">{{ s.body|striptags|slice:':100' }}</p>
+            <a href="/schools/{{ s.slug }}" class="text-primary text-sm px-2 py-4 block"
+                >Read more <i class="fa-solid fa-arrow-right"></i
+            ></a>
+        </div>
+        {% endfor %}
+    </div>
+</div>

@@ -21,7 +21,7 @@
                 <a href="/news/{{ n.slug }}" class="inline-block">
                     <h3 class="my-4 text-primary uppercase text-xl font-medium px-2">{{ n.title }}</h3></a
                 >
-                <div class="px-2 font-sans text-gray-600">{{ n.body|safe|truncatewords:12 }}</div>
+                <div class="px-2 font-sans text-gray-600">{{ n.body|striptags|slice:':100' }}...</div>
 
                 <a href="/news/{{ n.slug }}" class="text-primary text-sm px-2 py-4 inline-block"
                     >Learn more <i class="fa-solid fa-arrow-right"></i

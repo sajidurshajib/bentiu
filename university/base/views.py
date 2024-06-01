@@ -2,9 +2,11 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, get_object_or_404
 from notices.models import Notice
 from news.models import News
+from schools.models import Schools
 
 # Create your views here.
 def main(request):
+    # news  
     news = News.objects.order_by('-created_at')
     paginator = Paginator(news, 3)  
     try:
@@ -14,7 +16,10 @@ def main(request):
     except EmptyPage:
         news = paginator.page(paginator.num_pages)
 
-    context = {'title': 'BENTIU University', 'news':news}
+    # schools 
+    schools = Schools.objects.order_by('position')
+    
+    context = {'title': 'BENTIU University', 'news':news, 'schools': schools}
     return render(request, 'main.html', context)
 
 
@@ -23,9 +28,26 @@ def about(request):
     return render(request, 'about.html', context)
 
 
-def cources(request):
-    context = {'title': 'Cources'}
-    return render(request, 'cources.html', context)
+def schools(request):
+    sc = Schools.objects.order_by('position')
+    
+    page = request.GET.get('page')
+    limit = request.GET.get('limit', 6)
+    paginator = Paginator(sc, limit)  
+    try:
+        sc = paginator.page(page)
+    except PageNotAnInteger:
+        sc = paginator.page(1)
+    except EmptyPage:
+        sc = paginator.page(paginator.num_pages)
+        
+    context = {'title': 'Schools', 'schools': sc}
+    return render(request, 'schools.html', context)
+
+def schools_detail(request, slug):
+    schools = get_object_or_404(Schools, slug=slug)
+    context = {'schools': schools}
+    return render(request, 'schools_detail.html', context)
 
 def notice(request):
     notices = Notice.objects.order_by('-created_at')
