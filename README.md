@@ -8,6 +8,14 @@
 -   Notice
 -   News
 
-For cpanel
-Need gcc permission
-install pillow==8.0.0
+## For cpanel
+
+1. Need `gcc` permission
+
+2. `install pillow==8.0.0`
+
+### Pending
+
+2. Static page
+3. Cources
+4. Responsive

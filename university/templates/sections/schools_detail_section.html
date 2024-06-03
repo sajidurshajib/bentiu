@@ -4,7 +4,6 @@
     <span class="w-[120px] h-[2px] bg-gray-400 inline-block"></span>
     <span class="w-[80px] h-[2px] bg-gray-200 inline-block"></span>
 
-    <h2 class="text-gray-600 py-4">{{ schools.name }}</h2>
     <div class="loading-container">
         <div class="w-full h-[600px] animate-pulse loading-src">
             <div class="w-full h-full bg-slate-200 flex justify-center items-center">
@@ -13,10 +12,11 @@
         </div>
         <div
             class="w-full h-[600px] loaded-src"
-            data-src="/media/{{schools.cover}}"
+            data-src="/media/{{school.cover}}"
             style="background-size: cover; background-position: center"></div>
     </div>
+    <h2 class="text-gray-600 py-4">{{ school.name }}</h2>
     <br />
     <!-- <span class="bg-slate-200 px-3 py-1 text-gray-500">{{schools.date}}</span> -->
-    <p class="text-gray-500 mt-6">{{ schools.body|safe }}</p>
+    <p class="text-gray-500 mt-6">{{ school.body|safe }}</p>
 </div>

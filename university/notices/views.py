@@ -20,7 +20,7 @@ def notice(request):
         notices = paginator.page(paginator.num_pages)
 
         
-    context = {'title': 'Notice', 'notices': notices}
+    context = {'title': 'Announcement', 'notices': notices}
     return render(request, 'dashboard/notice.html', context)
 
 
@@ -35,7 +35,7 @@ def notice_add(request):
         
     else:
         form = NoticeForm()
-        context = {'title': 'Add Notice', 'form': form}
+        context = {'title': 'Add Announcement', 'form': form}
         return render(request, 'dashboard/notice-add.html', context)
 
 
