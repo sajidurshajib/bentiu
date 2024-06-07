@@ -1,11 +1,22 @@
 {% load static %}
-<div class="md:container mx-auto pt-[120px]">
-    <div class="grid grid-cols-12 gap-8">
-        <div class="col-span-6">
-            <h2 class="font-medium text-gray-600 mb-1">About Us</h2>
+<div class="md:container mx-auto pt-[120px] px-4 md:px-0">
+    <h2 class="font-medium text-gray-600 mb-1">About Us</h2>
+    <span class="w-[100px] h-[2px] bg-gray-400 inline-block"></span>
+    <span class="w-[70px] h-[2px] bg-gray-200 inline-block"></span>
 
-            <span class="w-[100px] h-[2px] bg-gray-400 inline-block"></span>
-            <span class="w-[70px] h-[2px] bg-gray-200 inline-block"></span>
+    <div class="grid grid-cols-6 md:grid-cols-12 gap-8">
+        <div class="col-span-6 loading-container md:hidden block">
+            <div class="w-full h-full rounded-sm animate-pulse loading-src">
+                <div class="w-full h-[300px] bg-slate-200 flex justify-center items-center">
+                    <div class="bg-slate-300 h-6 w-6 animate-spin"></div>
+                </div>
+            </div>
+            <div
+                class="w-full h-[300px] rounded-sm shadow-md loaded-src"
+                data-src="{% static 'img/chinese_embassy.jpg' %}"
+                style="background-size: cover; background-position: center"></div>
+        </div>
+        <div class="col-span-6">
             <p class="leading-loose text-lg font-sans font-thin text-gray-800 text-justify">
                 Bentiu University College of Petroleum (BUCP) is an academic public institution of higher education,
                 founded in 2010. The University College of Petroleum was originally known as Bentiu University. It is
@@ -17,8 +28,8 @@
                 field of Oil and Gas industry, Environmental Studies, which include water management, Science and
                 Technology, Innovation and Entrepreneurship.
             </p>
-            <div class="grid grid-cols-12 gap-10 mt-4">
-                <div class="col-span-4 bg-gray-100 py-8 px-6 rounded-sm flex justify-center">
+            <div class="grid grid-cols-12 gap-2 md:gap-10 mt-4">
+                <div class="col-span-4 bg-gray-100 py-2 md:py-4 px-6 rounded-sm flex justify-center">
                     <div class="">
                         <div class="flex justify-center py-2">
                             <i
@@ -29,7 +40,7 @@
                         <p class="text-center text-sm pt-1 font-sans text-gray-500">Academic & Administrative Staff</p>
                     </div>
                 </div>
-                <div class="col-span-4 bg-gray-100 py-8 px-6 rounded-sm flex justify-center">
+                <div class="col-span-4 bg-gray-100 py-2 md:py-4 px-6 rounded-sm flex justify-center">
                     <div class="">
                         <div class="flex justify-center py-2">
                             <i
@@ -40,7 +51,7 @@
                         <p class="text-center text-sm pt-1 font-sans text-gray-500">Schools, Institute & Center</p>
                     </div>
                 </div>
-                <div class="col-span-4 bg-gray-100 py-8 px-6 rounded-sm flex justify-center">
+                <div class="col-span-4 bg-gray-100 py-2 md:py-4 px-6 rounded-sm flex justify-center">
                     <div class="">
                         <div class="flex justify-center py-2">
                             <i
@@ -53,7 +64,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-span-6 loading-container">
+        <div class="col-span-6 loading-container hidden md:block">
             <div class="w-full h-full rounded-sm animate-pulse loading-src">
                 <div class="w-full h-full bg-slate-200 flex justify-center items-center">
                     <div class="bg-slate-300 h-6 w-6 animate-spin"></div>

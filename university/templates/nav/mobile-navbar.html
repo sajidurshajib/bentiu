@@ -1,0 +1,278 @@
+{% load static %}
+
+<div class="shadow-md">
+    <div class="md:container mx-auto py-4 grid grid-cols-12">
+        <div class="col-span-9 md:col-span-4 flex items-center">
+            <a href="/" class="uppercase font-robotoSlab flex">
+                <div class="pr-4 pl-2">
+                    <img
+                        src="{% static 'img/bentiu-logo.png' %}"
+                        alt="BENTIU University logo"
+                        style="height: 55px; width: 55px" />
+                </div>
+                <div>
+                    <h3 class="text-primary text-center font-medium text-lg md:text-xl">BENTIU UNIVERSITY</h3>
+                    <h4 class="text-center text-sm md:text-base">COLLEGE OF PETROLEUM</h4>
+                </div>
+            </a>
+        </div>
+        <div class="col-span-3 md:col-span-8 flex items-center justify-end">
+            <!-- Mobile menu button -->
+            <button class="block md:hidden mr-2" onclick="toggleMobileMenu()">
+                <i class="fa-solid fa-bars text-2xl text-gray-500"></i>
+            </button>
+            <!-- Desktop menu -->
+            <ul class="hidden md:flex justify-center">
+                <li class="ml-8 uppercase text-sm font-sans font-semibold text-gray-500 relative hover:text-primary">
+                    <a href="/">Home</a>
+                </li>
+                <li class="ml-8 uppercase text-sm font-sans font-semibold text-gray-500 relative hover:text-primary">
+                    <a href="javascript:void(0);" onclick="toggleDropdown(event, 'dropdown-about')"
+                        >About <i class="fa-solid fa-sort-down absolute top-[2px] -right-[14px]"></i
+                    ></a>
+                    <ul
+                        id="dropdown-about"
+                        class="absolute -left-10 mt-2 min-w-40 bg-white border border-gray-200 rounded shadow-lg hidden font-medium">
+                        <li>
+                            <a href="/about" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-primary"
+                                >About Us</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="/about/vc"
+                                class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-primary"
+                                >Word of VC</a
+                            >
+                        </li>
+                    </ul>
+                </li>
+                <li class="ml-8 uppercase text-sm font-sans font-semibold text-gray-500 relative hover:text-primary">
+                    <a href="javascript:void(0);" onclick="toggleDropdown(event, 'dropdown-schools')"
+                        >Schools <i class="fa-solid fa-sort-down absolute top-[2px] -right-[14px]"></i
+                    ></a>
+                    <ul
+                        id="dropdown-schools"
+                        class="absolute -left-12 mt-2 p-2 min-w-[350px] bg-white border border-gray-200 rounded shadow-lg hidden font-medium">
+                        <li>
+                            <a href="/schools" class="block px-4 py-2 text-white bg-primary rounded-sm p-1"
+                                >View all schools</a
+                            >
+                        </li>
+                        {% for s in schools %}
+                        <li>
+                            <a
+                                href="/schools/{{ s.slug }}"
+                                class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-primary"
+                                >{{s.name}}</a
+                            >
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                <li class="ml-8 uppercase text-sm font-sans font-semibold text-gray-500 relative hover:text-primary">
+                    <a href="javascript:void(0);" onclick="toggleDropdown(event, 'dropdown-notice')"
+                        >Announcement <i class="fa-solid fa-sort-down absolute top-[2px] -right-[14px]"></i
+                    ></a>
+                    <ul
+                        id="dropdown-notice"
+                        class="absolute -left-16 mt-2 p-2 min-w-[350px] bg-white border border-gray-200 rounded shadow-lg hidden font-medium">
+                        <li>
+                            <a href="/notices" class="block px-4 py-2 text-white bg-primary rounded-sm p-1"
+                                >View all announcement</a
+                            >
+                        </li>
+                        {% for n in notice %}
+                        <li>
+                            <a
+                                href="/notices/{{ n.slug }}"
+                                class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-primary"
+                                >{{n.title}}</a
+                            >
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                <li class="ml-8 uppercase text-sm font-sans font-semibold text-gray-500 relative hover:text-primary">
+                    <a href="javascript:void(0);" onclick="toggleDropdown(event, 'dropdown-news')"
+                        >News <i class="fa-solid fa-sort-down absolute top-[2px] -right-[14px]"></i
+                    ></a>
+                    <ul
+                        id="dropdown-news"
+                        class="absolute -right-16 mt-2 p-2 min-w-[350px] bg-white border border-gray-200 rounded shadow-lg hidden font-medium">
+                        <li>
+                            <a href="/news" class="block px-4 py-2 text-white bg-primary rounded-sm p-1"
+                                >View all news</a
+                            >
+                        </li>
+                        {% for n in news %}
+                        <li>
+                            <a
+                                href="/news/{{ n.slug }}"
+                                class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-primary"
+                                >{{n.title}}</a
+                            >
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                <li class="ml-8 uppercase text-sm font-sans font-semibold text-gray-500 relative hover:text-primary">
+                    <a href="/contact">Contact</a>
+                </li>
+            </ul>
+            <!-- Mobile menu -->
+            <ul id="mobile-menu" class="hidden md:hidden absolute top-[120px] left-0 w-[100vw] bg-white shadow-lg">
+                <li
+                    class="uppercase text-sm font-sans font-semibold text-gray-500 relative hover:text-primary border-t border-gray-200">
+                    <a href="/" class="block px-4 py-2">Home</a>
+                </li>
+                <li
+                    class="uppercase text-sm font-sans font-semibold text-gray-500 relative hover:text-primary border-t border-gray-200">
+                    <a
+                        href="javascript:void(0);"
+                        onclick="toggleMobileSubmenu(event, 'mobile-dropdown-about')"
+                        class="block px-4 py-2"
+                        >About <i class="fa-solid fa-sort-down absolute top-2 pl-2"></i
+                    ></a>
+                    <ul id="mobile-dropdown-about" class="hidden bg-gray-50 border-t border-gray-200">
+                        <li>
+                            <a href="/about" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-primary"
+                                >About Us</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="/about/vc"
+                                class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-primary"
+                                >Word of VC</a
+                            >
+                        </li>
+                    </ul>
+                </li>
+                <li
+                    class="uppercase text-sm font-sans font-semibold text-gray-500 relative hover:text-primary border-t border-gray-200">
+                    <a
+                        href="javascript:void(0);"
+                        onclick="toggleMobileSubmenu(event, 'mobile-dropdown-schools')"
+                        class="block px-4 py-2"
+                        >Schools <i class="fa-solid fa-sort-down absolute top-2 pl-2"></i
+                    ></a>
+                    <ul id="mobile-dropdown-schools" class="hidden bg-gray-50 border-t border-gray-200">
+                        <li>
+                            <a href="/schools" class="block px-4 py-2 text-white bg-primary rounded-sm p-1"
+                                >View all schools</a
+                            >
+                        </li>
+                        {% for s in schools %}
+                        <li>
+                            <a
+                                href="/schools/{{ s.slug }}"
+                                class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-primary"
+                                >{{ s.name }}</a
+                            >
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                <li
+                    class="uppercase text-sm font-sans font-semibold text-gray-500 relative hover:text-primary border-t border-gray-200">
+                    <a
+                        href="javascript:void(0);"
+                        onclick="toggleMobileSubmenu(event, 'mobile-dropdown-notice')"
+                        class="block px-4 py-2"
+                        >Announcement <i class="fa-solid fa-sort-down absolute top-2 pl-2"></i
+                    ></a>
+                    <ul id="mobile-dropdown-notice" class="hidden bg-gray-50 border-t border-gray-200">
+                        <li>
+                            <a href="/notices" class="block px-4 py-2 text-white bg-primary rounded-sm p-1"
+                                >View all announcement</a
+                            >
+                        </li>
+                        {% for n in notice %}
+                        <li>
+                            <a
+                                href="/notices/{{ n.slug }}"
+                                class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-primary"
+                                >{{ n.title }}</a
+                            >
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                <li
+                    class="uppercase text-sm font-sans font-semibold text-gray-500 relative hover:text-primary border-t border-gray-200">
+                    <a
+                        href="javascript:void(0);"
+                        onclick="toggleMobileSubmenu(event, 'mobile-dropdown-news')"
+                        class="block px-4 py-2"
+                        >News <i class="fa-solid fa-sort-down absolute top-2 pl-2"></i
+                    ></a>
+                    <ul id="mobile-dropdown-news" class="hidden bg-gray-50 border-t border-gray-200">
+                        <li>
+                            <a href="/news" class="block px-4 py-2 text-white bg-primary rounded-sm p-1"
+                                >View all news</a
+                            >
+                        </li>
+                        {% for n in news %}
+                        <li>
+                            <a
+                                href="/news/{{ n.slug }}"
+                                class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-primary"
+                                >{{ n.title }}</a
+                            >
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                <li
+                    class="uppercase text-sm font-sans font-semibold text-gray-500 relative hover:text-primary border-t border-gray-200">
+                    <a href="/contact" class="block px-4 py-2">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggleDropdown(event, dropdownId, mobile = false) {
+        event.stopPropagation();
+
+        // Hide all dropdowns first
+        const dropdowns = document.querySelectorAll('ul[id^="dropdown-"]');
+        dropdowns.forEach((dropdown) => {
+            if (dropdown.id !== dropdownId) {
+                dropdown.classList.add('hidden');
+            }
+        });
+
+        // Toggle the clicked dropdown
+        const dropdown = document.getElementById(dropdownId);
+        dropdown.classList.toggle('hidden');
+
+        // Prevent link navigation on mobile if it has a submenu
+        if (mobile) {
+            event.preventDefault();
+        }
+    }
+
+    // Close dropdowns if clicking outside
+    document.addEventListener('click', function (event) {
+        const dropdowns = document.querySelectorAll('ul[id^="dropdown-"]');
+        dropdowns.forEach((dropdown) => {
+            if (!dropdown.contains(event.target) && !dropdown.previousElementSibling.contains(event.target)) {
+                dropdown.classList.add('hidden');
+            }
+        });
+    });
+
+    function toggleMobileMenu() {
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenu.classList.toggle('hidden');
+    }
+
+    function toggleMobileSubmenu(event, submenuId) {
+        event.stopPropagation();
+        const submenu = document.getElementById(submenuId);
+        submenu.classList.toggle('hidden');
+    }
+</script>
