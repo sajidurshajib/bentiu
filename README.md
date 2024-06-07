@@ -16,6 +16,6 @@
 
 ### Pending
 
-2. Static page
+2. Principal image lazy-load
 3. Cources
 4. Responsive

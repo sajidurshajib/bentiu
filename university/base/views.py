@@ -3,6 +3,7 @@ from django.shortcuts import render, get_object_or_404
 from notices.models import Notice
 from news.models import News
 from schools.models import Schools
+from courses.models import Courses
 
 
 def get_common_data(request):
@@ -38,7 +39,7 @@ def vc(request):
 
 
 def schools(request):
-    sc = Schools.objects.order_by('position')
+    sc = Schools.objects.order_by('position').prefetch_related('courses')
     
     page = request.GET.get('page')
     limit = request.GET.get('limit', 6)
@@ -58,7 +59,8 @@ def schools(request):
 def schools_detail(request, slug):
     school = get_object_or_404(Schools, slug=slug)
     data = get_common_data(request=request)
-    context = {'school': school}
+    courses = school.courses.all() 
+    context = {'school': school, 'courses': courses}
     context.update(data)
     return render(request, 'schools_detail.html', context)
 
@@ -119,3 +121,10 @@ def contacts(request):
     context = {'title': 'Contact Us'}
     context.update(data)
     return render(request, 'contact.html', context)
+
+def course_detail(request, slug):
+    single_course = get_object_or_404(Courses, slug=slug)
+    data = get_common_data(request=request)
+    context = {'single_course': single_course}
+    context.update(data)
+    return render(request, 'course_detail.html', context)

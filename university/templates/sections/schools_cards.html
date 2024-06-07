@@ -18,9 +18,18 @@
                 data-src="/media/{{s.cover}}"
                 style="background-size: cover; background-position: center"></div>
             <!-- <p class="inline-block py-1 px-4 bg-primary text-white relative -top-4 left-2">Business</p> -->
-            <h4 class="mb-4 text-primary uppercase text-base px-2 mt-2">{{ s.name }}</h4>
-            <p class="px-2 font-sans text-gray-600">{{ s.body|striptags|slice:':100' }}</p>
-            <a href="/schools/{{ s.slug }}" class="text-primary text-sm px-2 py-4 block"
+            <h4 class="mb-1 text-primary uppercase text-base px-2 mt-2">{{ s.name }}</h4>
+            <!-- <p class="px-2 text-sm text-gray-600 mb-1">Courses:</p> -->
+            <div class="mb-2">
+                {% for c in s.courses.all %}
+                <a href="/courses/{{ c.slug }}">
+                    <p class="mx-2 text-sm py-1 px-3 bg-primary text-white rounded-sm inline-block">{{c.name}}</p>
+                </a>
+                {% endfor %}
+            </div>
+            <hr />
+            <p class="px-2 font-sans text-gray-600 text-sm mt-2">{{ s.body|striptags|slice:':100' }}</p>
+            <a href="/schools/{{ s.slug }}" class="text-primary text-sm px-2 my-4 block"
                 >Read more <i class="fa-solid fa-arrow-right"></i
             ></a>
         </div>

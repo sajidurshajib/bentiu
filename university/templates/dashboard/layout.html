@@ -44,6 +44,11 @@
                             class="mx-12 {% if request.resolver_match.url_name == 'dashboard-schools' %}bg-orange-400 text-white{% else %} bg-slate-200 text-gray-500 {% endif %} hover:bg-orange-400 hover:text-white p-4 mb-2 rounded-md block"
                             ><i class="fa-solid fa-school"></i> Schools</a
                         >
+                        <a
+                            href="/dashboard/courses"
+                            class="mx-12 {% if request.resolver_match.url_name == 'dashboard-courses' %}bg-orange-400 text-white{% else %} bg-slate-200 text-gray-500 {% endif %} hover:bg-orange-400 hover:text-white p-4 mb-2 rounded-md block"
+                            ><i class="fa-solid fa-book-open"></i> Courses</a
+                        >
                     </div>
                 </div>
             </div>

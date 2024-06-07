@@ -3,6 +3,7 @@ from . import views
 from notices.views import notice, notice_add, notice_edit, notice_remove
 from news.views import news, news_add, news_remove, news_edit
 from schools.views import schools, schools_add, schools_edit, schools_remove
+from courses.views import courses, course_add, course_edit, course_remove
 
 urlpatterns = [
     path('', views.dashboard, name='dashboard'),
@@ -22,4 +23,9 @@ urlpatterns = [
     path('schools-add/', schools_add, name='dashboard-schools-add'),
     path('schools-edit/<int:id>', schools_edit, name='dashboard-schools-edit'),
     path('schools-remove/<int:id>', schools_remove, name='dashboard-schools-remove'),
+
+    path('courses/', courses, name='dashboard-courses'),
+    path('course-add/', course_add, name='dashboard-course-add'),
+    path('course-edit/<int:id>', course_edit, name='dashboard-course-edit'),
+    path('course-remove/<int:id>', course_remove, name='dashboard-course-remove'),
 ]

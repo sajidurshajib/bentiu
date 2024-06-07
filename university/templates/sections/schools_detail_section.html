@@ -16,7 +16,15 @@
             style="background-size: cover; background-position: center"></div>
     </div>
     <h2 class="text-gray-600 py-4">{{ school.name }}</h2>
-    <br />
+    <div class="mb-2">
+        <span> Courses: </span>
+        {% for c in courses %}
+        <a href="/courses/{{ c.slug }}">
+            <span class="mr-2 py-2 px-6 bg-primary text-white rounded-sm inline-block"> {{c.name}} </span>
+        </a>
+        {% endfor %}
+    </div>
+    <hr />
     <!-- <span class="bg-slate-200 px-3 py-1 text-gray-500">{{schools.date}}</span> -->
     <p class="text-gray-500 mt-6">{{ school.body|safe }}</p>
 </div>

@@ -1,0 +1,10 @@
+<div class="md:container mx-auto pt-[120px] min-h-[600px]">
+    <h2 class="font-medium text-gray-600 mb-1">Course</h2>
+
+    <span class="w-[120px] h-[2px] bg-gray-400 inline-block"></span>
+    <span class="w-[80px] h-[2px] bg-gray-200 inline-block"></span>
+
+    <h2 class="text-gray-600 py-4">{{ single_course.name }}</h2>
+    <!-- <span class="bg-slate-200 px-3 py-1 text-gray-500">{{single_course.date}}</span> -->
+    <p class="text-gray-500 mt-2">{{ single_course.body|safe }}</p>
+</div>
