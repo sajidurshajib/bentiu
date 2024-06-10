@@ -95,7 +95,7 @@ def news(request):
     
     page = request.GET.get('page')
     limit = request.GET.get('limit', 6)
-    paginator = Paginator(news, limit)  
+    paginator = Paginator(all_news, limit)  
     try:
         all_news = paginator.page(page)
     except PageNotAnInteger:

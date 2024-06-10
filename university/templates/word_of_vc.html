@@ -1,11 +1,25 @@
 {% extends 'layout.html' %} {% block content%} {% load static %}
-<div class="md:container mx-auto pt-[120px]">
+<div class="md:container mx-auto pt-[30px] md:pt-[120px] px-4 md:px-0">
     <div class="grid grid-cols-12 gap-6">
-        <div class="col-span-9">
-            <h2 class="font-medium text-gray-600 mb-1">A Word from the Vice Chancellor</h2>
+        <div class="col-span-12 md:col-span-3 md:hidden">
+            <div>
+                <h2 class="font-medium text-gray-600 mb-1">A Word from the Vice Chancellor</h2>
 
-            <span class="w-[100px] h-[2px] bg-gray-400 inline-block"></span>
-            <span class="w-[70px] h-[2px] bg-gray-200 inline-block"></span>
+                <span class="w-[100px] h-[2px] bg-gray-400 inline-block"></span>
+                <span class="w-[70px] h-[2px] bg-gray-200 inline-block"></span>
+            </div>
+            <img
+                src="{% static 'img/vc.jpg' %}"
+                alt="BENTIU University VC"
+                style="width: 100%; border-radius: 5px; box-shadow: 1px 5px 10px grey" />
+        </div>
+        <div class="col-span-12 md:col-span-9">
+            <div class="hidden md:block">
+                <h2 class="font-medium text-gray-600 mb-1">A Word from the Vice Chancellor</h2>
+
+                <span class="w-[100px] h-[2px] bg-gray-400 inline-block"></span>
+                <span class="w-[70px] h-[2px] bg-gray-200 inline-block"></span>
+            </div>
             <br /><br />
             <p class="leading-relaxed text-justify mb-4 text-gray-600">
                 I am privilege to lead Bentiu University of Petroleum (BUP) during it early development. I am proud of
@@ -36,7 +50,7 @@
                 <p class="col-span-7 font-bold">Vice Chancellor (Principal)</p>
             </div>
         </div>
-        <div class="col-span-3">
+        <div class="col-span-12 md:col-span-3 hidden md:block">
             <img
                 src="{% static 'img/vc.jpg' %}"
                 alt="BENTIU University VC"

@@ -1,20 +1,56 @@
 {% load static %}
 
-<div class="mt-20">
-    <div class="py-[80px] flex justify-center items-center" style="background-color: rgba(10, 10, 20, 0.9)">
-        <form>
-            <h1 class="text-center font-medium text-white">Get in touch</h1>
-            <p class="text-gray-400 font-sans py-8 text-center">Let's find out what we can do for you!</p>
-            <div class="border-4 border-slate-700">
-                <input type="email" class="p-2 outline-none min-w-[350px] font-sans" /><button
-                    type="submit"
-                    class="text-gray-200 px-8 font-sans">
-                    Submit
-                </button>
+<div class="mt-20" style="background-color: rgba(10, 10, 20, 0.9)">
+    <div class="py-[80px] px-4 md:px-0 grid col-span-3 md:grid-cols-12 gap-8 md:gap-16 text-white md:container mx-auto">
+        <div class="col-span-3">
+            <h2 class="mb-4">About</h2>
+            <p class="leading-loose text-gray-500 text-sm text-justify">
+                Bentiu University College of Petroleum (BUCP) is an academic public institution of higher education,
+                founded in 2010. The University College of Petroleum was originally known as Bentiu University College
+                Of Petroleum. Click <a href="/about" class="text-white">here</a> for more information.
+            </p>
+        </div>
+        <div class="col-span-3">
+            <h2 class="mb-4">Schools</h2>
+            <ul class="">
+                {% for s in schools %}
+                <li>
+                    <a href="/schools/{{ s.slug }}" class="leading-loose text-gray-500 text-sm"
+                        ><i class="fa-solid fa-graduation-cap"></i> {{s.name}}</a
+                    >
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-span-3">
+            <h2 class="mb-4">Latest News</h2>
+            <ul class="">
+                {% for n in news %}
+                <li>
+                    <a href="/news/{{ n.slug }}" class="leading-loose text-gray-500 text-sm"
+                        ><i class="fa-regular fa-newspaper"></i> {{n.title}}</a
+                    >
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-span-3">
+            <h2 class="mb-4">Contact</h2>
+            <div class="mb-4">
+                <p class="leading-loose text-white text-sm"><i class="fa-solid fa-location-dot"></i> Location</p>
+                <p class="leading-loose text-gray-500 text-sm">plot 234 Bentiu Town</p>
             </div>
-        </form>
+            <div class="mb-4">
+                <p class="leading-loose text-white text-sm"><i class="fa-solid fa-phone"></i> Phone</p>
+                <p class="leading-loose text-gray-500 text-sm">+211923768744, +211917146053</p>
+            </div>
+            <div class="mb-4">
+                <p class="leading-loose text-white text-sm"><i class="fa-regular fa-envelope"></i> Email</p>
+                <p class="leading-loose text-gray-500 text-sm">bentiu.university@gmail.com</p>
+            </div>
+        </div>
     </div>
     <p class="bg-primary text-white text-sm text-center py-2">
-        Copyright © 2024 Bentiu University of Petroleum. Powered by NiloTech
+        Copyright © 2024 Bentiu University College Of Petroleum. Powered by NiloTech
     </p>
 </div>

@@ -1,4 +1,4 @@
-<div class="md:container mx-auto pt-[120px]">
+<div class="md:container mx-auto pt-[30px] md:pt-[120px] px-4 md:px-0">
     <h2 class="font-medium text-gray-600 mb-1">Announcements</h2>
 
     <span class="w-[120px] h-[2px] bg-gray-400 inline-block"></span>
@@ -6,7 +6,7 @@
     <div class="mt-6 w-full">
         <div class="grid grid-cols-12 gap-4">
             {% for notice in notices %}
-            <div class="bg-slate-200 p-4 rounded-sm mb-4 col-span-6">
+            <div class="bg-slate-200 p-4 rounded-sm mb-4 col-span-12 md:col-span-6">
                 <a href="/notices/{{ notice.slug }}">
                     <h4 class="text-gray-600">{{ notice.title }}</h4>
                 </a>
