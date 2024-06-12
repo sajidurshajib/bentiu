@@ -12,7 +12,7 @@
                 ><< First</a
             >
             <a
-                href="?page={{ notices.previous_page_number }}&limit=6"
+                href="?page={{ all_news.previous_page_number }}&limit=6"
                 class="bg-slate-200 text-gray-500 rounded-sm px-3 py-1 hover:bg-orange-400 hover:text-white"
                 >< Previous</a
             >
@@ -24,12 +24,12 @@
 
             {% if all_news.has_next %}
             <a
-                href="?page={{ notices.next_page_number }}&limit=6"
+                href="?page={{ all_news.next_page_number }}&limit=6"
                 class="bg-slate-200 text-gray-500 rounded-sm px-3 py-1 hover:bg-orange-400 hover:text-white"
                 >Next ></a
             >
             <a
-                href="?page={{ notices.paginator.num_pages }}&limit=6"
+                href="?page={{ all_news.paginator.num_pages }}&limit=6"
                 class="bg-slate-200 text-gray-500 rounded-sm px-3 py-1 hover:bg-orange-400 hover:text-white"
                 >Last >></a
             >
