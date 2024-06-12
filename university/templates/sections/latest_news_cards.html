@@ -1,12 +1,12 @@
 {% load static %}
 <div class="md:container mx-auto pt-[30px] md:pt-[120px] px-4 md:px-0">
-    <h2 class="font-medium text-gray-600 mb-1">News</h2>
+    <h2 class="font-medium text-gray-600 mb-1">Latest News</h2>
 
     <span class="w-[120px] h-[2px] bg-gray-400 inline-block"></span>
     <span class="w-[80px] h-[2px] bg-gray-200 inline-block"></span>
 
     <div class="grid grid-cols-4 md:grid-cols-12 gap-8 mt-4">
-        {% for n in all_news %}
+        {% for n in news %}
         <div class="col-span-4 border-2 border-gray-200 p-1">
             <div class="loading-container">
                 <div class="w-full h-[180px] animate-pulse loading-src">

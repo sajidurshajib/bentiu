@@ -12,7 +12,7 @@ module.exports = {
             keyframes: {
                 heroTextDown: {
                     '0%': { 'margin-bottom': '180px', opacity: '0.4' },
-                    '100%': { 'margin-bottom': '32px', opacity: '1' },
+                    '100%': { 'margin-bottom': '52px', opacity: '1' },
                 },
             },
             animation: {

@@ -1,17 +1,28 @@
 {% extends 'layout.html' %} {% block content%} {% load static %}
 <div class="md:container mx-auto pt-[30px] md:pt-[120px] px-4 md:px-0">
     <div class="grid grid-cols-12 gap-6">
-        <div class="col-span-12 md:col-span-3 md:hidden">
+        <!-- mobile  -->
+        <div class="col-span-12 md:col-span-3 md:hidden loading-container">
             <div>
                 <h2 class="font-medium text-gray-600 mb-1">A Word from the Vice Chancellor</h2>
 
                 <span class="w-[100px] h-[2px] bg-gray-400 inline-block"></span>
                 <span class="w-[70px] h-[2px] bg-gray-200 inline-block"></span>
             </div>
-            <img
+            <!-- <img
                 src="{% static 'img/vc.jpg' %}"
                 alt="BENTIU University VC"
-                style="width: 100%; border-radius: 5px; box-shadow: 1px 5px 10px grey" />
+                style="width: 100%; border-radius: 5px; box-shadow: 1px 5px 10px grey" /> -->
+
+            <div class="w-full h-[500px] rounded-sm animate-pulse loading-src">
+                <div class="w-full h-full bg-slate-200 flex justify-center items-center">
+                    <div class="bg-slate-300 h-6 w-6 animate-spin"></div>
+                </div>
+            </div>
+            <div
+                class="w-full h-[500px] rounded-sm shadow-md loaded-src"
+                data-src="{% static 'img/vc-min.jpg' %}"
+                style="background-size: cover; background-position: center"></div>
         </div>
         <div class="col-span-12 md:col-span-9">
             <div class="hidden md:block">
@@ -50,11 +61,23 @@
                 <p class="col-span-7 font-bold">Vice Chancellor (Principal)</p>
             </div>
         </div>
-        <div class="col-span-12 md:col-span-3 hidden md:block">
+        <!-- desktop  -->
+        <!-- <div class="col-span-12 md:col-span-3 hidden md:block">
             <img
                 src="{% static 'img/vc.jpg' %}"
                 alt="BENTIU University VC"
                 style="width: 100%; border-radius: 5px; box-shadow: 1px 5px 10px grey" />
+        </div> -->
+        <div class="col-span-12 md:col-span-3 loading-container hidden md:block">
+            <div class="w-full h-[600px] rounded-sm animate-pulse loading-src">
+                <div class="w-full h-full bg-slate-200 flex justify-center items-center">
+                    <div class="bg-slate-300 h-6 w-6 animate-spin"></div>
+                </div>
+            </div>
+            <div
+                class="w-full h-[600px] rounded-sm shadow-md loaded-src"
+                data-src="{% static 'img/vc-min.jpg' %}"
+                style="background-size: cover; background-position: center"></div>
         </div>
     </div>
 </div>

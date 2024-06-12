@@ -14,7 +14,7 @@
             <h2 class="mb-4">Schools</h2>
             <ul class="">
                 {% for s in schools %}
-                <li>
+                <li class="mb-2">
                     <a href="/schools/{{ s.slug }}" class="leading-loose text-gray-500 text-sm"
                         ><i class="fa-solid fa-graduation-cap"></i> {{s.name}}</a
                     >
@@ -26,7 +26,7 @@
             <h2 class="mb-4">Latest News</h2>
             <ul class="">
                 {% for n in news %}
-                <li>
+                <li class="mb-2">
                     <a href="/news/{{ n.slug }}" class="leading-loose text-gray-500 text-sm"
                         ><i class="fa-regular fa-newspaper"></i> {{n.title}}</a
                     >
